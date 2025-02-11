@@ -19,12 +19,12 @@ function App() {
 
 function MainLayout() {
   const location = useLocation();
-  const isFrontPage = location.pathname === "/";
-
+  
   return (
     <>
-      {/* Show Header only if not on FrontPage */}
-      {!isFrontPage && <Header />}
+      {/* Show Header for all routes except "/" */}
+      {location.pathname !== "/" && <Header />}
+      
       <Routes>
         <Route path="/" element={<FrontPage />} />
         <Route path="/about" element={<About />} />
@@ -32,6 +32,7 @@ function MainLayout() {
         <Route path="/education" element={<Education />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<ContactWithFooter />} />
+        <Route path="*" element={<FrontPage />} /> 
       </Routes>
     </>
   );

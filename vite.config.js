@@ -7,5 +7,5 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     react()],
-    base: "/dipansh-react-portfolio",
+    base: "/",
 })
